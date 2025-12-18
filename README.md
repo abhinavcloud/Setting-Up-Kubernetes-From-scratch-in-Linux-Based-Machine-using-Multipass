@@ -260,7 +260,8 @@ By the end of execution, you will have:
 
 ---
 
-##Cleanup/Destroy Script: k8s_destroy.sh
+## Cleanup/Destroy Script (k8s_destroy.sh):
+
 Use the **k8s_destroy.sh** in the event the setup fails. 
 The script:
 - is idempotent and re-runnable
