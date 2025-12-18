@@ -4,7 +4,7 @@
 
 This repository provides a **fully automated Bash script (`setup.sh`)** that provisions a **single-control-plane Kubernetes cluster with one worker node** using **Multipass virtual machines**.
 
-With **one command**, the script:
+With **one single command**, the script:
 
 * Creates virtual machines
 * Installs all Kubernetes dependencies
