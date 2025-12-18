@@ -153,20 +153,21 @@ ssh user@linux-machine
 ### 2. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-directory>
+git clone git@github.com:abhinavcloud/Setting-Up-Kubernetes-From-scratch-in-Linux-Based-Machine-using-Multipass.git
+
+cd Setting-Up-Kubernetes-From-scratch-in-Linux-Based-Machine-using-Multipass
 ```
 
 ### 3. Make Script Executable
 
 ```bash
-chmod +x setup.sh
+chmod +x k8s_setup.sh
 ```
 
 ### 4. Run the Setup Script
 
 ```bash
-./setup.sh
+./k8s_setup.sh
 ```
 
 ### 5. Observe Progress
