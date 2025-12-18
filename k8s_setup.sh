@@ -59,7 +59,7 @@ WORKER_NODE="k8s-worker1"
 POD_CIDR="10.244.0.0/16"
 
 # Kubernetes version stream
-K8S_VERSION="v1.30"
+K8S_VERSION="1.30"
 
 # Log file for full execution trace
 LOG_FILE="$HOME/k8s-setup.log"
@@ -267,7 +267,7 @@ run_vm "$WORKER_NODE"  "$K8S_INSTALL"
 step "Initializing Kubernetes control plane"
 
 run_vm "$CONTROL_PLANE" "
-sudo kubeadm init --pod-network-cidr=$POD_CIDR
+[ -f /etc/kubernetes/admin.conf ] || sudo kubeadm init --pod-network-cidr=$POD_CIDR
 
 mkdir -p \$HOME/.kube
 sudo cp /etc/kubernetes/admin.conf \$HOME/.kube/config
@@ -291,7 +291,8 @@ https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-f
 # -----------------------------------------------------------------------------
 step "Joining worker node to Kubernetes cluster"
 
-JOIN_CMD=$(run_vm "$CONTROL_PLANE" "kubeadm token create --print-join-command")
+JOIN_CMD=$(multipass exec "$CONTROL_PLANE" -- \
+  kubeadm token create --print-join-command | tail -n1)
 run_vm "$WORKER_NODE" "sudo $JOIN_CMD"
 
 

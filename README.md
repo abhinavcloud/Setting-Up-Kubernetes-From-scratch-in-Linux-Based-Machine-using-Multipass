@@ -260,6 +260,18 @@ By the end of execution, you will have:
 
 ---
 
+##Cleanup/Destroy Script: k8s_destroy.sh
+Use the **k8s_destroy.sh** in the event the setup fails. 
+The script:
+- is idempotent and re-runnable
+- has clear logs for debugging
+
+The destroy script is safe to run even if:
+- Cluster is half-created
+- One VM is missing
+- Kubernetes never fully initialized
+- No interactive shells
+
 ## Future Enhancements (Optional)
 
 * Multi-worker support
@@ -268,7 +280,6 @@ By the end of execution, you will have:
 * Ingress (NGINX)
 * Metrics Server
 * Helm bootstrap
-* Cleanup / teardown script
 
 ---
 
