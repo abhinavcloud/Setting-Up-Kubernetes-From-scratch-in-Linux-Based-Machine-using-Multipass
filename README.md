@@ -72,6 +72,8 @@ Host Machine (Linux)
 └── kubectl (configured on host)
 ```
 
+![alt text](<K8s_Architecture.png>)
+
 ### Execution Model
 
 * The script **does not open interactive shells**
